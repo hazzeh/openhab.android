@@ -96,7 +96,7 @@ public class Util {
                 if (sitemap2.getLabel() == null) {
                     return 1;
                 }
-                return  sitemap1.getLabel().compareTo(sitemap2.getLabel());
+                return sitemap1.getLabel().compareTo(sitemap2.getLabel());
             }
         });
 

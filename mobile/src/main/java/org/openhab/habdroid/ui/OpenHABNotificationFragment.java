@@ -23,16 +23,16 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestHandle;
 
-import cz.msebera.android.httpclient.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.openhab.habdroid.R;
 import org.openhab.habdroid.model.OpenHABNotification;
-import org.openhab.habdroid.util.Constants;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A fragment representing a list of Items.
@@ -89,7 +89,7 @@ public class OpenHABNotificationFragment extends ListFragment implements SwipeRe
         if (getArguments() != null) {
             openHABUsername = getArguments().getString(ARG_USERNAME);
             openHABPassword = getArguments().getString(ARG_PASSWORD);
-            openHABBaseURL =  getArguments().getString(ARG_BASEURL);
+            openHABBaseURL = getArguments().getString(ARG_BASEURL);
         }
     }
 

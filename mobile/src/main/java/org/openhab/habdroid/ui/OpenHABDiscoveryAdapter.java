@@ -41,8 +41,8 @@ public class OpenHABDiscoveryAdapter extends ArrayAdapter<OpenHABBinding> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(mResource, parent, false);
         }
-        TextView nameView = (TextView)convertView.findViewById(R.id.bindingName);
-        TextView descriptionView = (TextView)convertView.findViewById(R.id.bindingDescription);
+        TextView nameView = (TextView) convertView.findViewById(R.id.bindingName);
+        TextView descriptionView = (TextView) convertView.findViewById(R.id.bindingDescription);
         nameView.setText(binding.getName());
         descriptionView.setText(binding.getDescription());
         return convertView;

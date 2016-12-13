@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2010-2016, openHAB.org and others.
- *
+ * <p>
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- *
+ * <p>
+ * <p>
  * This class is based on SegmentedControlButton by Benjamin Ferrari
  * http://bookworm.at
  * https://github.com/bookwormat/segcontrol
@@ -54,7 +54,7 @@ public class SegmentedControlButton extends RadioButton {
     private Paint textPaint;
 
     private Paint linePaint;
-    
+
     private int buttonIndex;
 
     private OnClickListener mOnClickListener;
@@ -199,12 +199,12 @@ public class SegmentedControlButton extends RadioButton {
         mTextDistanceFromLine = textDistanceFromLine;
     }
 
-	public int getButtonIndex() {
-		return buttonIndex;
-	}
+    public int getButtonIndex() {
+        return buttonIndex;
+    }
 
-	public void setButtonIndex(int buttonIndex) {
-		this.buttonIndex = buttonIndex;
-	}
+    public void setButtonIndex(int buttonIndex) {
+        this.buttonIndex = buttonIndex;
+    }
 
 }

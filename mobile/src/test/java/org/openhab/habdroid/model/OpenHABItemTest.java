@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OpenHABItemTest {
@@ -23,7 +24,7 @@ public class OpenHABItemTest {
     }
 
     @Test
-         public void getStateAsBoolean_stateON_returnTrue() throws Exception {
+    public void getStateAsBoolean_stateON_returnTrue() throws Exception {
         OpenHABItem sut = new OpenHABItem(mockJSONObject);
         sut.setState("ON");
 

@@ -26,6 +26,7 @@ public class HABDroid extends MultiDexApplication {
     public enum TrackerName {
         APP_TRACKER // Tracker used only in this app.
     }
+
     private HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
     private static final String PROPERTY_ID = "UA-39285202-1";
     private static final String TAG = HABDroid.class.getSimpleName();

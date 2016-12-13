@@ -17,6 +17,10 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.ImageView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.auth.AuthScope;
 import cz.msebera.android.httpclient.auth.UsernamePasswordCredentials;
@@ -25,10 +29,6 @@ import cz.msebera.android.httpclient.client.CredentialsProvider;
 import cz.msebera.android.httpclient.client.methods.HttpGet;
 import cz.msebera.android.httpclient.impl.client.BasicCredentialsProvider;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
 
 public class MjpegStreamer {
 
@@ -44,7 +44,7 @@ public class MjpegStreamer {
     private ImageView mTargetImageView;
     private DownloadImageTask mDownloadImageTask;
 
-    public MjpegStreamer(String sourceUrl, String username, String password, Context ctx){
+    public MjpegStreamer(String sourceUrl, String username, String password, Context ctx) {
         mSourceUrl = sourceUrl;
         mUsername = username;
         mPassword = password;
@@ -73,14 +73,14 @@ public class MjpegStreamer {
         mTargetImageView = targetImageView;
     }
 
-    public void startStream(Handler handler, int id){
+    public void startStream(Handler handler, int id) {
         mHandler = handler;
         mId = id;
         mInputStream = new MjpegInputStream(httpRequest(mSourceUrl, mUsername, mPassword));
         mRunning = true;
     }
 
-    public void getFrame(){
+    public void getFrame() {
         Bitmap mBitmap;
         try {
             mBitmap = mInputStream.readMjpegFrame();
@@ -91,7 +91,7 @@ public class MjpegStreamer {
         }
     }
 
-    public InputStream httpRequest(String url, String usr, String pwd){
+    public InputStream httpRequest(String url, String usr, String pwd) {
         HttpResponse res = null;
         DefaultHttpClient httpclient = new DefaultHttpClient();
         CredentialsProvider credProvider = new BasicCredentialsProvider();
@@ -102,7 +102,7 @@ public class MjpegStreamer {
         try {
             res = httpclient.execute(new HttpGet(URI.create(url)));
             Log.d(TAG, "2. Request finished, status = " + res.getStatusLine().getStatusCode());
-            if(res.getStatusLine().getStatusCode()==401){
+            if (res.getStatusLine().getStatusCode() == 401) {
                 //You must turn off camera User Access Control before this will work
                 return null;
             }
@@ -136,7 +136,8 @@ public class MjpegStreamer {
     private class DownloadImageTask extends AsyncTask<Handler, Void, Void> {
         MjpegStreamer cam;
         int id;
-        DownloadImageTask(MjpegStreamer cam, int id){
+
+        DownloadImageTask(MjpegStreamer cam, int id) {
             this.cam = cam;
             this.id = id;
         }

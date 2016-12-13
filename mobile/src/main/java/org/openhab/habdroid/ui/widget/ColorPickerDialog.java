@@ -17,7 +17,7 @@ import android.view.View;
 
 public class ColorPickerDialog extends Dialog {
 
-	private static final String TAG = ColorPickerDialog.class.getSimpleName();
+    private static final String TAG = ColorPickerDialog.class.getSimpleName();
     private OnColorChangedListener mListener;
     private float[] mInitialColor;
     private ColorPicker colorPickerView;
@@ -28,11 +28,11 @@ public class ColorPickerDialog extends Dialog {
                              OnColorChangedListener listener,
                              float[] initialColor) {
         super(context);
- 
+
         mListener = listener;
         mInitialColor = initialColor;
     }
- 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,23 +47,23 @@ public class ColorPickerDialog extends Dialog {
         this.colorPickerView = new ColorPicker(getContext(), l);
         this.colorPickerView.setHSVColor(mInitialColor);
         if (this.tag != null)
-        	this.colorPickerView.setTag(this.tag);
+            this.colorPickerView.setTag(this.tag);
         setContentView(this.colorPickerView);
         setTitle("Pick a Color");
     }
 
-	public View getView() {
-		return colorPickerView;
-	}
+    public View getView() {
+        return colorPickerView;
+    }
 
-	public Object getTag() {
-		return tag;
-	}
+    public Object getTag() {
+        return tag;
+    }
 
-	public void setTag(Object tag) {
-		this.tag = tag;
-		if (this.colorPickerView != null) {
-			this.colorPickerView.setTag(this.tag);
-		}
-	}
+    public void setTag(Object tag) {
+        this.tag = tag;
+        if (this.colorPickerView != null) {
+            this.colorPickerView.setTag(this.tag);
+        }
+    }
 }

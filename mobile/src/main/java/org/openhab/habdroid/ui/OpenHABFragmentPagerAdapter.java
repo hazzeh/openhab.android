@@ -9,10 +9,10 @@
 
 package org.openhab.habdroid.ui;
 
-import android.support.v4.app.ListFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
@@ -68,7 +68,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
         return fragmentList;
     }
 
-    public void setFragmentList(List<ListFragment>fragments) {
+    public void setFragmentList(List<ListFragment> fragments) {
         fragmentList = fragments;
         notifyDataSetChanged();
     }
@@ -88,7 +88,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
     public int getPositionByUrl(String pageUrl) {
         for (int i = 0; i < fragmentList.size(); i++) {
             if (fragmentList.get(i) instanceof OpenHABWidgetListFragment)
-                if (((OpenHABWidgetListFragment)fragmentList.get(i)).getDisplayPageUrl().equals(pageUrl)) {
+                if (((OpenHABWidgetListFragment) fragmentList.get(i)).getDisplayPageUrl().equals(pageUrl)) {
                     return i;
                 }
         }
@@ -107,7 +107,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
         float pageWidth;
 /*        pageWidth = 1.0f / getActualColumnsNumber();*/
         if (getActualColumnsNumber() > 1) {
-            if (position == fragmentList.size()-1) { // Last fragment
+            if (position == fragmentList.size() - 1) { // Last fragment
                 pageWidth = 0.67f;
             } else {
                 pageWidth = 0.33f;
@@ -116,7 +116,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
             pageWidth = 1.0f;
         }
         Log.d(TAG, String.format("getPageWidth(%d) returned %f", position, pageWidth));
-        return  pageWidth;
+        return pageWidth;
     }
 
     public int getActualColumnsNumber() {
@@ -219,7 +219,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
         Log.d(TAG, "openPage(" + pageUrl + ")");
         int oldColumnCount = getActualColumnsNumber();
         if (position < fragmentList.size()) {
-            for (int i=fragmentList.size()-1; i>=position; i--) {
+            for (int i = fragmentList.size() - 1; i >= position; i--) {
                 fragmentList.remove(i);
                 Log.d(TAG, String.format("Removing fragment at position %d", i));
             }
@@ -230,7 +230,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
         fragmentList.add(fragment);
         Log.d(TAG, String.format("Old columns = %d, new columns = %d", oldColumnCount, getActualColumnsNumber()));
 //        if (getActualColumnsNumber() != oldColumnCount)
-            actualColumnCountChanged = true;
+        actualColumnCountChanged = true;
         Log.d(TAG, "Before notifyDataSetChanged");
         notifyDataSetChanged();
         Log.d(TAG, "After notifyDataSetChanged");
@@ -249,8 +249,8 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
             Log.d(TAG, "new position is less then current");
             if (columnsNumber > 1) { // In multicolumn we will modify fragment list immediately
                 if (fragmentList.get(pageSelected) instanceof OpenHABWidgetListFragment)
-                    ((OpenHABWidgetListFragment)fragmentList.get(pageSelected)).clearSelection();
-                for(int i=fragmentList.size()-1; i>mSelectedPage; i--) {
+                    ((OpenHABWidgetListFragment) fragmentList.get(pageSelected)).clearSelection();
+                for (int i = fragmentList.size() - 1; i > mSelectedPage; i--) {
                     Log.d(TAG, String.format("Removing page %d", i));
                     fragmentList.remove(i);
                 }
@@ -268,7 +268,7 @@ public class OpenHABFragmentPagerAdapter extends FragmentStatePagerAdapter imple
             Log.d(TAG, "Scrolling finished");
             if (mSelectedPage < fragmentList.size() - 1) {
                 Log.d(TAG, "new position is less then current");
-                for(int i=fragmentList.size()-1; i>mSelectedPage; i--) {
+                for (int i = fragmentList.size() - 1; i > mSelectedPage; i--) {
                     fragmentList.remove(i);
                 }
             }

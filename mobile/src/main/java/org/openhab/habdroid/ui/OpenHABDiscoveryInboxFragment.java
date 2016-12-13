@@ -28,15 +28,15 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestHandle;
 import com.software.shell.fab.ActionButton;
 
-import cz.msebera.android.httpclient.Header;
 import org.openhab.habdroid.R;
-
 import org.openhab.habdroid.model.OpenHABDiscoveryInbox;
 import org.openhab.habdroid.model.thing.ThingType;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import cz.msebera.android.httpclient.Header;
 
 public class OpenHABDiscoveryInboxFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -105,7 +105,7 @@ public class OpenHABDiscoveryInboxFragment extends ListFragment implements Swipe
         View view = inflater.inflate(R.layout.openhabdiscoveryinboxlist_fragment, container, false);
         mSwipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
         mSwipeLayout.setOnRefreshListener(this);
-        discoveryButton = (ActionButton)view.findViewById(R.id.discovery_button);
+        discoveryButton = (ActionButton) view.findViewById(R.id.discovery_button);
         if (discoveryButton != null) {
             discoveryButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -146,7 +146,7 @@ public class OpenHABDiscoveryInboxFragment extends ListFragment implements Swipe
     }
 
     @Override
-    public void onResume () {
+    public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume()");
         loadDiscoveryInbox();
@@ -154,7 +154,7 @@ public class OpenHABDiscoveryInboxFragment extends ListFragment implements Swipe
     }
 
     @Override
-    public void onPause () {
+    public void onPause() {
         super.onPause();
         Log.d(TAG, "onPause()");
         // Cancel request for notifications if there was any
@@ -234,7 +234,7 @@ public class OpenHABDiscoveryInboxFragment extends ListFragment implements Swipe
                 }
 
                 @Override
-                public void  onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                     stopProgressIndicator();
                     Log.d(TAG, "Inbox request failure: " + error.getMessage());
                 }
@@ -242,7 +242,7 @@ public class OpenHABDiscoveryInboxFragment extends ListFragment implements Swipe
         }
     }
 
-    private void loadThingTypes () {
+    private void loadThingTypes() {
         if (mAsyncHttpClient != null) {
             startProgressIndicator();
             mRequestHandle = mAsyncHttpClient.get(openHABBaseUrl + "rest/thing-types", new AsyncHttpResponseHandler() {
@@ -266,7 +266,7 @@ public class OpenHABDiscoveryInboxFragment extends ListFragment implements Swipe
                 }
 
                 @Override
-                public void  onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                     stopProgressIndicator();
                     Log.d(TAG, "Thing types request failure: " + error.getMessage());
                 }

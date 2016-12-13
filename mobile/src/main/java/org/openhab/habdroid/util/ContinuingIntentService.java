@@ -21,9 +21,8 @@ import android.os.Message;
  * This class is similar to the {@link android.app.IntentService},
  * with the main difference that this service does not stop itself automatically
  * once the intent has been handled.
- *
+ * <p>
  * This behaviour is necessary for example if the subclass has to wait for asynchronous callbacks.
- *
  */
 public abstract class ContinuingIntentService extends Service {
     private volatile Looper mServiceLooper;
@@ -38,7 +37,7 @@ public abstract class ContinuingIntentService extends Service {
 
         @Override
         public void handleMessage(Message msg) {
-            onHandleIntent((Intent)msg.obj);
+            onHandleIntent((Intent) msg.obj);
         }
     }
 
@@ -74,7 +73,7 @@ public abstract class ContinuingIntentService extends Service {
     /**
      * @return The start ID of the latest intent received.
      */
-    protected int getLastStartId(){
+    protected int getLastStartId() {
         return mLastStartId;
     }
 

@@ -32,7 +32,7 @@ public class OpenHABDiscoveryInbox {
             e.printStackTrace();
         }
     }
-    
+
     public String getFlag() {
         return flag;
     }

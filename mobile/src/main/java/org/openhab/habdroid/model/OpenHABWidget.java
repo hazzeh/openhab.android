@@ -19,194 +19,198 @@ import java.util.ArrayList;
  */
 
 public abstract class OpenHABWidget {
-	private String id;
-	private String label;
-	private String icon;
-	private String type;
-	private String url;
-	private String period = "";
+    private String id;
+    private String label;
+    private String icon;
+    private String type;
+    private String url;
+    private String period = "";
     private String service = "";
-	private float minValue =0;
-	private float maxValue = 100;
-	private float step = 1;
-	private int refresh = 0;
-	private int height = 0;
-	private String state;
-	OpenHABWidget parent;
-	private OpenHABItem item;
-	private OpenHABLinkedPage linkedPage;
-	ArrayList<OpenHABWidget> children;
-	ArrayList<OpenHABWidgetMapping> mappings;
+    private float minValue = 0;
+    private float maxValue = 100;
+    private float step = 1;
+    private int refresh = 0;
+    private int height = 0;
+    private String state;
+    OpenHABWidget parent;
+    private OpenHABItem item;
+    private OpenHABLinkedPage linkedPage;
+    ArrayList<OpenHABWidget> children;
+    ArrayList<OpenHABWidgetMapping> mappings;
     private boolean mChildrenHasLinkedPages = false;
     private Integer iconcolor;
     private Integer labelcolor;
     private Integer valuecolor;
     private String encoding;
 
-	public OpenHABWidget() {
-		this.children = new ArrayList<OpenHABWidget>();
-		this.mappings = new ArrayList<OpenHABWidgetMapping>();
-	}
+    public OpenHABWidget() {
+        this.children = new ArrayList<OpenHABWidget>();
+        this.mappings = new ArrayList<OpenHABWidgetMapping>();
+    }
 
-	public void addChildWidget(OpenHABWidget child) {
-		if (child != null) {
-			this.children.add(child);
-		}
-	}
+    public void addChildWidget(OpenHABWidget child) {
+        if (child != null) {
+            this.children.add(child);
+        }
+    }
 
-	public boolean hasChildren() {
-		if (this.children.size() > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public ArrayList<OpenHABWidget> getChildren() {
-		return this.children;
-	}
-	
-	public boolean hasItem() {
-		if (this.getItem() != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean hasLinkedPage() {
-		if (this.linkedPage != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public String getType() {
-		return type;
-	}
+    public boolean hasChildren() {
+        if (this.children.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public ArrayList<OpenHABWidget> getChildren() {
+        return this.children;
+    }
 
-	public OpenHABItem getItem() {
-		return item;
-	}
+    public boolean hasItem() {
+        if (this.getItem() != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public void setItem(OpenHABItem item) {
-		this.item = item;
-	}
+    public boolean hasLinkedPage() {
+        if (this.linkedPage != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public String getLabel() {
-		return label;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getIcon() {
-		return icon;
-	}
+    public OpenHABItem getItem() {
+        return item;
+    }
 
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
+    public void setItem(OpenHABItem item) {
+        this.item = item;
+    }
 
-	public OpenHABLinkedPage getLinkedPage() {
-		return linkedPage;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public void setLinkedPage(OpenHABLinkedPage linkedPage) {
-		this.linkedPage = linkedPage;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getIcon() {
+        return icon;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
-	public boolean hasMappings() {
-		if (mappings.size() > 0) {
-			return true;
-		}
-		return false;
-	}
-	
-	public OpenHABWidgetMapping getMapping(int index) {
-		return mappings.get(index);
-	}
-	
-	public ArrayList<OpenHABWidgetMapping> getMappings() {
-		return mappings;
-	}
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
-	public float getMinValue() {
-		return minValue;
-	}
+    public OpenHABLinkedPage getLinkedPage() {
+        return linkedPage;
+    }
 
-	public void setMinValue(float minValue) {
-		this.minValue = minValue;
-	}
+    public void setLinkedPage(OpenHABLinkedPage linkedPage) {
+        this.linkedPage = linkedPage;
+    }
 
-	public float getMaxValue() {
-		return maxValue;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public void setMaxValue(float maxValue) {
-		this.maxValue = maxValue;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public float getStep() {
-		return step;
-	}
+    public boolean hasMappings() {
+        if (mappings.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 
-	public void setStep(float step) {
-		this.step = step;
-	}
+    public OpenHABWidgetMapping getMapping(int index) {
+        return mappings.get(index);
+    }
 
-	public int getRefresh() {
-		return refresh;
-	}
+    public ArrayList<OpenHABWidgetMapping> getMappings() {
+        return mappings;
+    }
 
-	public void setRefresh(int refresh) {
-		this.refresh = refresh;
-	}
+    public float getMinValue() {
+        return minValue;
+    }
 
-	public String getPeriod() {
-		if (period.length() == 0) {
-			return "D";
-		}
-		return period;
-	}
+    public void setMinValue(float minValue) {
+        this.minValue = minValue;
+    }
 
-	public void setPeriod(String period) {
-		this.period = period;
-	}
+    public float getMaxValue() {
+        return maxValue;
+    }
 
-    public String getService() { return service; }
+    public void setMaxValue(float maxValue) {
+        this.maxValue = maxValue;
+    }
 
-    public void setService(String service) { this.service = service; }
+    public float getStep() {
+        return step;
+    }
 
-	public int getHeight() {
-		return height;
-	}
+    public void setStep(float step) {
+        this.step = step;
+    }
 
-	public void setHeight(int height) {
-		this.height = height;
-	}
+    public int getRefresh() {
+        return refresh;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public void setRefresh(int refresh) {
+        this.refresh = refresh;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getPeriod() {
+        if (period.length() == 0) {
+            return "D";
+        }
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public boolean childrenHasLinkedPages() {
         if (this.hasChildren()) {
@@ -235,7 +239,7 @@ public abstract class OpenHABWidget {
     public void setLabelColor(String color) {
         try {
             this.labelcolor = new Integer(Color.parseColor(fixColorName(color)));
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             Log.e("OpenHABWidget", "Color was " + color);
             Log.e("OpenHABWidget", e.getMessage());
             this.labelcolor = null;
@@ -249,7 +253,7 @@ public abstract class OpenHABWidget {
     public void setValueColor(String color) {
         try {
             this.valuecolor = new Integer(Color.parseColor(fixColorName(color)));
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             Log.e("OpenHABWidget", "Color was " + color);
             Log.e("OpenHABWidget", e.getMessage());
             this.valuecolor = null;
@@ -263,7 +267,7 @@ public abstract class OpenHABWidget {
     public void setIconColor(String color) {
         try {
             this.iconcolor = new Integer(Color.parseColor(fixColorName(color)));
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             Log.e("OpenHABWidget", "Color was " + color);
             Log.e("OpenHABWidget", e.getMessage());
             this.iconcolor = null;
@@ -284,13 +288,13 @@ public abstract class OpenHABWidget {
         this.encoding = encoding;
     }
 
-	public void setState(String state) {
-		this.state = state;
-	}
+    public void setState(String state) {
+        this.state = state;
+    }
 
-	public String getState() {
-		return state;
-	}
+    public String getState() {
+        return state;
+    }
 
-	public abstract String getIconPath();
+    public abstract String getIconPath();
 }

@@ -49,7 +49,7 @@ public class AsyncServiceResolver extends Thread implements ServiceListener {
         mCtx = context;
         mServiceType = serviceType;
         if (context instanceof AsyncServiceResolverListener)
-            mListener = (AsyncServiceResolverListener)context;
+            mListener = (AsyncServiceResolverListener) context;
     }
 
     public AsyncServiceResolver(Context context, AsyncServiceResolverListener listener, String serviceType) {
@@ -61,8 +61,8 @@ public class AsyncServiceResolver extends Thread implements ServiceListener {
 
     public void run() {
         WifiManager wifi =
-                   (android.net.wifi.WifiManager)
-                      mCtx.getSystemService(android.content.Context.WIFI_SERVICE);
+                (android.net.wifi.WifiManager)
+                        mCtx.getSystemService(android.content.Context.WIFI_SERVICE);
         mMulticastLock = wifi.createMulticastLock("HABDroidMulticastLock");
         mMulticastLock.setReferenceCounted(true);
         try {
@@ -101,7 +101,7 @@ public class AsyncServiceResolver extends Thread implements ServiceListener {
     }
 
     public void serviceAdded(ServiceEvent event) {
-       Log.d(TAG, "Service Added " + event.getName());
+        Log.d(TAG, "Service Added " + event.getName());
         mJmdns.requestServiceInfo(event.getType(), event.getName(), 1);
     }
 
@@ -136,9 +136,9 @@ public class AsyncServiceResolver extends Thread implements ServiceListener {
 
     private InetAddress getLocalIpv4Address() {
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
                     Log.i(TAG, "IP: " + inetAddress.getHostAddress().toString());
                     Log.i(TAG, "Is IPV4 = " + (inetAddress instanceof Inet4Address));

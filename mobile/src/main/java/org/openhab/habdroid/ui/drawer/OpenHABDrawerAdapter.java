@@ -78,16 +78,16 @@ public class OpenHABDrawerAdapter extends ArrayAdapter<OpenHABDrawerItem> {
             drawerItemView = new RelativeLayout(getContext());
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater vi;
-            vi = (LayoutInflater)getContext().getSystemService(inflater);
+            vi = (LayoutInflater) getContext().getSystemService(inflater);
             vi.inflate(drawerItemLayout, drawerItemView, true);
         } else {
             drawerItemView = (RelativeLayout) convertView;
         }
 
         // Find all needed views
-        drawerItemLabelTextView = (TextView)drawerItemView.findViewById(R.id.itemlabel);
-        drawerItemCountLabelTextView = (TextView)drawerItemView.findViewById(R.id.itemcountlabel);
-        drawerItemImage = (MySmartImageView)drawerItemView.findViewById(R.id.itemimage);
+        drawerItemLabelTextView = (TextView) drawerItemView.findViewById(R.id.itemlabel);
+        drawerItemCountLabelTextView = (TextView) drawerItemView.findViewById(R.id.itemcountlabel);
+        drawerItemImage = (MySmartImageView) drawerItemView.findViewById(R.id.itemimage);
         switch (this.getItemViewType(position)) {
             case TYPE_SITEMAPITEM:
                 OpenHABSitemap siteMap = drawerItem.getSiteMap();
@@ -97,7 +97,7 @@ public class OpenHABDrawerAdapter extends ArrayAdapter<OpenHABDrawerItem> {
                     drawerItemLabelTextView.setText(siteMap.getName());
                 }
                 if (siteMap.getIcon() != null && drawerItemImage != null) {
-                    String iconUrl = openHABBaseUrl + Uri.encode(siteMap.getIconPath(),"/?=");
+                    String iconUrl = openHABBaseUrl + Uri.encode(siteMap.getIconPath(), "/?=");
                     drawerItemImage.setImageUrl(iconUrl, R.drawable.openhabiconsmall,
                             openHABUsername, openHABPassword);
                 } else {
@@ -134,7 +134,7 @@ public class OpenHABDrawerAdapter extends ArrayAdapter<OpenHABDrawerItem> {
 
     @Override
     public int getItemViewType(int position) {
-        switch(getItem(position).getItemType()) {
+        switch (getItem(position).getItemType()) {
             case SITEMAP_ITEM:
                 return TYPE_SITEMAPITEM;
             case MENU_ITEM:

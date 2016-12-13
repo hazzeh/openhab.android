@@ -13,11 +13,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public abstract class OpenHABSitemap implements Parcelable {
-	private String name;
+    private String name;
     private String label;
-	private String link;
+    private String link;
     private String icon;
-	private String homepageLink;
+    private String homepageLink;
     private boolean leaf = false;
 
     OpenHABSitemap(Parcel in) {
@@ -32,26 +32,33 @@ public abstract class OpenHABSitemap implements Parcelable {
     }
 
     public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getLink() {
-		return link;
-	}
-	public void setLink(String link) {
-		this.link = link;
-	}
-	public String getHomepageLink() {
-		return homepageLink;
-	}
-	public void setHomepageLink(String homepageLink) {
-		this.homepageLink = homepageLink;
-	}
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getHomepageLink() {
+        return homepageLink;
+    }
+
+    public void setHomepageLink(String homepageLink) {
+        this.homepageLink = homepageLink;
+    }
+
     public String getIcon() {
         return icon;
     }
+
     public void setIcon(String icon) {
         this.icon = icon;
     }

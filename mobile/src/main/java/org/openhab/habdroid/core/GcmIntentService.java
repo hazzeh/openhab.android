@@ -33,7 +33,8 @@ public class GcmIntentService extends IntentService {
     private NotificationManager mNotificationManager;
     // Notification delete receiver
     private final NotificationDeletedBroadcastReceiver mNotificationDeletedBroadcastReceiver =
-            new NotificationDeletedBroadcastReceiver();;
+            new NotificationDeletedBroadcastReceiver();
+    ;
 
     public GcmIntentService() {
         super("GcmIntentService");
@@ -61,7 +62,7 @@ public class GcmIntentService extends IntentService {
                 }
                 if ("notification".equals(intent.getExtras().getString("type"))) {
                     sendNotification(intent.getExtras().getString("message"), notificationId);
-                // If this is hideNotification, cancel existing notification with it's id
+                    // If this is hideNotification, cancel existing notification with it's id
                 } else if ("hideNotification".equals(intent.getExtras().getString("type"))) {
                     mNotificationManager.cancel(Integer.parseInt(intent.getExtras().getString("notificationId")));
                 }

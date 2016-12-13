@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import org.openhab.habdroid.R;
 import org.openhab.habdroid.model.OpenHABNotification;
-import org.openhab.habdroid.util.Constants;
 import org.openhab.habdroid.util.MySmartImageView;
 
 import java.util.ArrayList;
@@ -45,9 +44,9 @@ public class OpenHABNotificationAdapter extends ArrayAdapter<OpenHABNotification
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(mResource, parent, false);
         }
-        TextView createdView = (TextView)convertView.findViewById(R.id.notificationCreated);
-        TextView messageView = (TextView)convertView.findViewById(R.id.notificationMessage);
-        MySmartImageView imageView = (MySmartImageView)convertView.findViewById(R.id.notificationImage);
+        TextView createdView = (TextView) convertView.findViewById(R.id.notificationCreated);
+        TextView messageView = (TextView) convertView.findViewById(R.id.notificationMessage);
+        MySmartImageView imageView = (MySmartImageView) convertView.findViewById(R.id.notificationImage);
         if (imageView != null) {
             if (notification.getIcon() != null && imageView != null) {
                 String iconUrl = mOpenHABBaseUrl + "/images/" + Uri.encode(notification.getIcon() + ".png");

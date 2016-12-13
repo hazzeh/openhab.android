@@ -61,10 +61,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.loopj.android.image.WebImageCache;
 
-import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.client.HttpResponseException;
-import cz.msebera.android.httpclient.conn.HttpHostConnectException;
-import cz.msebera.android.httpclient.entity.StringEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.openhab.habdroid.BuildConfig;
@@ -98,6 +94,10 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.client.HttpResponseException;
+import cz.msebera.android.httpclient.conn.HttpHostConnectException;
+import cz.msebera.android.httpclient.entity.StringEntity;
 import de.duenndns.ssl.MTMDecision;
 import de.duenndns.ssl.MemorizingResponder;
 import de.duenndns.ssl.MemorizingTrustManager;
@@ -1062,7 +1062,7 @@ public class OpenHABMainActivity extends AppCompatActivity implements OnWidgetSe
 
         try {
             startActivity(speechIntent);
-        } catch(ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e) {
             // Speech not installed?
             Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://market.android.com/details?id=com.google.android.voicesearch"));

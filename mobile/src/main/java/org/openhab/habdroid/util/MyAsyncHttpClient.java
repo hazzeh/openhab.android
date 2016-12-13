@@ -14,28 +14,27 @@ import android.preference.PreferenceManager;
 
 import com.loopj.android.http.AsyncHttpClient;
 
-import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
-
 import javax.net.ssl.SSLContext;
 
+import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
 import de.duenndns.ssl.MemorizingTrustManager;
 
 public class MyAsyncHttpClient extends AsyncHttpClient {
-	
-	private SSLContext sslContext;
-	private SSLSocketFactory sslSocketFactory;
-	
-	public MyAsyncHttpClient(Context ctx) {
+
+    private SSLContext sslContext;
+    private SSLSocketFactory sslSocketFactory;
+
+    public MyAsyncHttpClient(Context ctx) {
         super();
 //		super(ctx);
-		try {
-	        sslContext = SSLContext.getInstance("TLS");
-	        sslContext.init(MyKeyManager.getInstance(ctx), MemorizingTrustManager.getInstanceList(ctx), new java.security.SecureRandom());
-	        sslSocketFactory = new MySSLSocketFactory(sslContext);
+        try {
+            sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(MyKeyManager.getInstance(ctx), MemorizingTrustManager.getInstanceList(ctx), new java.security.SecureRandom());
+            sslSocketFactory = new MySSLSocketFactory(sslContext);
             if (PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(Constants.PREFERENCE_SSLHOST, false))
                 sslSocketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-	        this.setSSLSocketFactory(sslSocketFactory);
-	    } catch (Exception ex) {
-	    }
-	}
+            this.setSSLSocketFactory(sslSocketFactory);
+        } catch (Exception ex) {
+        }
+    }
 }

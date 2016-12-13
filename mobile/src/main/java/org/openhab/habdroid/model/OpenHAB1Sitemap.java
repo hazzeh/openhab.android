@@ -10,7 +10,7 @@ public class OpenHAB1Sitemap extends OpenHABSitemap {
     public OpenHAB1Sitemap(Node startNode) {
         if (startNode.hasChildNodes()) {
             NodeList childNodes = startNode.getChildNodes();
-            for (int i = 0; i < childNodes.getLength(); i ++) {
+            for (int i = 0; i < childNodes.getLength(); i++) {
                 Node childNode = childNodes.item(i);
                 if (childNode.getNodeName().equals("name")) {
                     this.setName(childNode.getTextContent());
@@ -40,6 +40,7 @@ public class OpenHAB1Sitemap extends OpenHABSitemap {
             }
         }
     }
+
     public static final Parcelable.Creator<OpenHABSitemap> CREATOR = new Parcelable.Creator<OpenHABSitemap>() {
         public OpenHABSitemap createFromParcel(Parcel in) {
             return new OpenHAB1Sitemap(in);

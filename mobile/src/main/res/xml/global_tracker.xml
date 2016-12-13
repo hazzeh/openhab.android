@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- the Local LogLevel for Analytics -->
     <string name="ga_logLevel">verbose</string>
     <!-- how often the dispatcher should fire -->
@@ -9,5 +9,6 @@
     <!-- The screen names that will appear in reports -->
     <string name="org.openhab.habdroid.ui.OpenHABMainActivity">OpenHABMainActivity</string>
     <string name="org.openhab.habdroid.ui.OpenHABWriteTagActivity">OpenHABWriteTagActivity</string>
-    <string name="org.openhab.habdroid.ui.OpenHABPreferencesActivity">OpenHABPreferencesActivity</string>
+    <string name="org.openhab.habdroid.ui.OpenHABPreferencesActivity">OpenHABPreferencesActivity
+    </string>
 </resources>

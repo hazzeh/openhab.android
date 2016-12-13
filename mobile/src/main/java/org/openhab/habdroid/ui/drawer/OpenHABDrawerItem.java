@@ -25,6 +25,7 @@ public class OpenHABDrawerItem {
         HEADER_ITEM, // A header item placed in front of a group of items
         DIVIDER_ITEM
     }
+
     private String mLabelText;
     private Drawable mIcon;
     private DrawerItemType mItemType;
@@ -82,7 +83,7 @@ public class OpenHABDrawerItem {
         return menuWithCountItem(labelText, icon, count, 0);
     }
 
-        public String getLabelText() {
+    public String getLabelText() {
         return mLabelText;
     }
 

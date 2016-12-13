@@ -27,6 +27,7 @@ public class OpenHABNotification {
     private Date mCreated;
     private String mIcon;
     private String mSeverity;
+
     public OpenHABNotification(JSONObject jsonObject) {
         try {
             if (jsonObject.has("icon"))

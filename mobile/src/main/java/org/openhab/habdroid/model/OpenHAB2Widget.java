@@ -30,7 +30,7 @@ public class OpenHAB2Widget extends OpenHABWidget {
             }
             if (widgetJson.has("mappings")) {
                 JSONArray mappingsJsonArray = widgetJson.getJSONArray("mappings");
-                for (int i=0; i<mappingsJsonArray.length(); i++) {
+                for (int i = 0; i < mappingsJsonArray.length(); i++) {
                     JSONObject mappingObject = mappingsJsonArray.getJSONObject(i);
                     OpenHABWidgetMapping mapping = new OpenHABWidgetMapping(mappingObject.getString("command"),
                             mappingObject.getString("label"));
@@ -48,11 +48,11 @@ public class OpenHAB2Widget extends OpenHABWidget {
             if (widgetJson.has("url"))
                 this.setUrl(widgetJson.getString("url"));
             if (widgetJson.has("minValue"))
-                this.setMinValue((float)widgetJson.getDouble("minValue"));
+                this.setMinValue((float) widgetJson.getDouble("minValue"));
             if (widgetJson.has("maxValue"))
-                this.setMaxValue((float)widgetJson.getDouble("maxValue"));
+                this.setMaxValue((float) widgetJson.getDouble("maxValue"));
             if (widgetJson.has("step"))
-                this.setStep((float)widgetJson.getDouble("step"));
+                this.setStep((float) widgetJson.getDouble("step"));
             if (widgetJson.has("refresh"))
                 this.setRefresh(widgetJson.getInt("refresh"));
             if (widgetJson.has("period"))
@@ -76,7 +76,7 @@ public class OpenHAB2Widget extends OpenHABWidget {
         if (widgetJson.has("widgets")) {
             try {
                 JSONArray childWidgetJsonArray = widgetJson.getJSONArray("widgets");
-                for (int i=0; i<childWidgetJsonArray.length(); i++) {
+                for (int i = 0; i < childWidgetJsonArray.length(); i++) {
                     createOpenHABWidgetFromJson(this, childWidgetJsonArray.getJSONObject(i));
                 }
             } catch (JSONException e) {

@@ -19,29 +19,29 @@ import org.w3c.dom.NodeList;
  */
 
 public class OpenHABLinkedPage {
-	private String id;
-	private String title;
-	private String icon;
-	private String link;
-	private static final String TAG = OpenHABLinkedPage.class.getSimpleName();
-	
-	public OpenHABLinkedPage(Node startNode) {
-		if (startNode.hasChildNodes()) {
-			NodeList childNodes = startNode.getChildNodes();
-			for (int i = 0; i < childNodes.getLength(); i ++) {
-				Node childNode = childNodes.item(i);
-				if (childNode.getNodeName().equals("id")) {
-					this.setId(childNode.getTextContent());
-				} else if (childNode.getNodeName().equals("title")) {
-					this.setTitle(childNode.getTextContent());
-				} else if (childNode.getNodeName().equals("icon")) {
-					this.setIcon(childNode.getTextContent());
-				} else if (childNode.getNodeName().equals("link")) {
-					this.setLink(childNode.getTextContent());
-				}
-			}
-		}
-	}
+    private String id;
+    private String title;
+    private String icon;
+    private String link;
+    private static final String TAG = OpenHABLinkedPage.class.getSimpleName();
+
+    public OpenHABLinkedPage(Node startNode) {
+        if (startNode.hasChildNodes()) {
+            NodeList childNodes = startNode.getChildNodes();
+            for (int i = 0; i < childNodes.getLength(); i++) {
+                Node childNode = childNodes.item(i);
+                if (childNode.getNodeName().equals("id")) {
+                    this.setId(childNode.getTextContent());
+                } else if (childNode.getNodeName().equals("title")) {
+                    this.setTitle(childNode.getTextContent());
+                } else if (childNode.getNodeName().equals("icon")) {
+                    this.setIcon(childNode.getTextContent());
+                } else if (childNode.getNodeName().equals("link")) {
+                    this.setLink(childNode.getTextContent());
+                }
+            }
+        }
+    }
 
     public OpenHABLinkedPage(JSONObject jsonObject) {
         try {
@@ -58,43 +58,43 @@ public class OpenHABLinkedPage {
         }
     }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getTitle() {
+    public String getTitle() {
         if (title.indexOf('[') > 0) {
             return title.substring(0, title.indexOf('['));
         }
-		return title;
-	}
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getIcon() {
-		return icon;
-	}
+    public String getIcon() {
+        return icon;
+    }
 
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
-	public String getLink() {
-		return link;
-	}
+    public String getLink() {
+        return link;
+    }
 
-	public void setLink(String link) {
-		this.link = link;
-	}
+    public void setLink(String link) {
+        this.link = link;
+    }
 
-	public static String getTag() {
-		return TAG;
-	}
-	
+    public static String getTag() {
+        return TAG;
+    }
+
 }

@@ -29,7 +29,7 @@ public class ConnectivityChangeReceiver extends BroadcastReceiver {
         Log.d(TAG, "component = " + intent.getComponent());
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            for (String key: extras.keySet()) {
+            for (String key : extras.keySet()) {
                 Log.d(TAG, key + " = " + extras.get(key));
             }
         } else {

@@ -38,8 +38,8 @@ public class BindingThingTypesAdapter extends ArrayAdapter<ThingType> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(mResource, parent, false);
         }
-        TextView labelView = (TextView)convertView.findViewById(R.id.thingTypeLabel);
-        TextView descriptionView = (TextView)convertView.findViewById(R.id.thingTypeDescription);
+        TextView labelView = (TextView) convertView.findViewById(R.id.thingTypeLabel);
+        TextView descriptionView = (TextView) convertView.findViewById(R.id.thingTypeDescription);
         labelView.setText(thingType.getLabel());
         descriptionView.setText(thingType.getDescription());
         return convertView;

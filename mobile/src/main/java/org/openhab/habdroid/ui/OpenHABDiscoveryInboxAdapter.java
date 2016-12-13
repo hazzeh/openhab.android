@@ -8,6 +8,7 @@
  */
 
 package org.openhab.habdroid.ui;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +41,7 @@ public class OpenHABDiscoveryInboxAdapter extends ArrayAdapter<OpenHABDiscoveryI
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(mResource, parent, false);
         }
-        TextView labelView = (TextView)convertView.findViewById(R.id.deviceLabel);
+        TextView labelView = (TextView) convertView.findViewById(R.id.deviceLabel);
         ThingType thingType = thingTypeByUid(inbox.getThingUID());
         if (thingType != null) {
             if (inbox.getLabel() != null && !inbox.getLabel().isEmpty()) {

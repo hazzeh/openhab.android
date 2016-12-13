@@ -25,7 +25,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestHandle;
 
-import cz.msebera.android.httpclient.Header;
 import org.openhab.habdroid.R;
 import org.openhab.habdroid.model.OpenHABBinding;
 
@@ -34,6 +33,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cz.msebera.android.httpclient.Header;
 
 public class OpenHABDiscoveryFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener {
 

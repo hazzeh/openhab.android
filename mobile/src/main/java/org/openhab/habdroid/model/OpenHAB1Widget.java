@@ -20,7 +20,7 @@ public class OpenHAB1Widget extends OpenHABWidget {
         this.mappings = new ArrayList<OpenHABWidgetMapping>();
         if (startNode.hasChildNodes()) {
             NodeList childNodes = startNode.getChildNodes();
-            for (int i = 0; i < childNodes.getLength(); i ++) {
+            for (int i = 0; i < childNodes.getLength(); i++) {
                 Node childNode = childNodes.item(i);
                 String childNodeName = childNode.getNodeName();
                 String childNodeTextContent = childNode.getTextContent();
@@ -76,11 +76,12 @@ public class OpenHAB1Widget extends OpenHABWidget {
                     } else if (childNodeName.equals("encoding")) {
                         setEncoding(childNodeTextContent);
                     }
-                 }
+                }
             }
         }
         this.parent.addChildWidget(this);
     }
+
     public static OpenHABWidget createOpenHABWidgetFromNode(OpenHABWidget parent, Node startNode) {
         return new OpenHAB1Widget(parent, startNode);
     }

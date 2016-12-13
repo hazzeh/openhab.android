@@ -19,15 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.loopj.android.http.TextHttpResponseHandler;
-
-import cz.msebera.android.httpclient.Header;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.openhab.habdroid.R;
 import org.openhab.habdroid.util.MyAsyncHttpClient;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class OpenHABInfoFragment extends DialogFragment {
@@ -50,14 +49,14 @@ public class OpenHABInfoFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.openhabinfo, container);
         mAsyncHttpClient = new MyAsyncHttpClient(getActivity().getApplicationContext());
-        mOpenHABVersionText = (TextView)view.findViewById(R.id.openhab_version);
-        mOpenHABUUIDText = (TextView)view.findViewById(R.id.openhab_uuid);
-        mOpenHABSecretText = (TextView)view.findViewById(R.id.openhab_secret);
-        mOpenHABSecretLabel = (TextView)view.findViewById(R.id.openhab_secret_label);
-        mOpenHABVersionLabel = (TextView)view.findViewById(R.id.openhab_version_label);
-        Bundle bundle=getArguments();
+        mOpenHABVersionText = (TextView) view.findViewById(R.id.openhab_version);
+        mOpenHABUUIDText = (TextView) view.findViewById(R.id.openhab_uuid);
+        mOpenHABSecretText = (TextView) view.findViewById(R.id.openhab_secret);
+        mOpenHABSecretLabel = (TextView) view.findViewById(R.id.openhab_secret_label);
+        mOpenHABVersionLabel = (TextView) view.findViewById(R.id.openhab_version_label);
+        Bundle bundle = getArguments();
 
-        if (bundle!=null){
+        if (bundle != null) {
 
             mOpenHABBaseUrl = bundle.getString("openHABBaseUrl");
             mUsername = bundle.getString("username");
@@ -72,9 +71,9 @@ public class OpenHABInfoFragment extends DialogFragment {
 
         return view;
     }
+
     @Override
-    public void onStart()
-    {
+    public void onStart() {
         super.onStart();
         Dialog dialog = getDialog();
         if (dialog != null) {
@@ -159,8 +158,8 @@ public class OpenHABInfoFragment extends DialogFragment {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                String version="";
-                if(mOpenHABVersion == 1) {
+                String version = "";
+                if (mOpenHABVersion == 1) {
                     version = responseString;
                     mOpenHABVersionLabel.setText(getResources().getText(R.string.info_openhab_version_label));
                 } else {

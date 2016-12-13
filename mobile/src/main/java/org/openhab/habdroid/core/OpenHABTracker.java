@@ -35,7 +35,6 @@ import javax.jmdns.ServiceInfo;
  * change openHAB connectivity URL during app use if needed
  *
  * @author Victor Belov
- *
  */
 
 public class OpenHABTracker implements AsyncServiceResolverListener {
@@ -60,7 +59,7 @@ public class OpenHABTracker implements AsyncServiceResolverListener {
         mDiscoveryEnabled = discoveryEnabled;
         // If context is implementing our callback interface, set it as a receiver automatically
         if (ctx instanceof OpenHABTrackerReceiver) {
-            mReceiver = (OpenHABTrackerReceiver)ctx;
+            mReceiver = (OpenHABTrackerReceiver) ctx;
         }
         // openHAB Bonjour service type
         mOpenHABServiceType = serviceType;
@@ -79,7 +78,7 @@ public class OpenHABTracker implements AsyncServiceResolverListener {
 //                new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         // If demo mode is on, just go for demo server base URL ignoring other settings
         // Get current network information
-        ConnectivityManager connectivityManager = (ConnectivityManager)mCtx.getSystemService(
+        ConnectivityManager connectivityManager = (ConnectivityManager) mCtx.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo != null) {
@@ -99,7 +98,7 @@ public class OpenHABTracker implements AsyncServiceResolverListener {
                     } else {
                         openHABError(mCtx.getString(R.string.error_no_url));
                     }
-                // Else if we are on Wifi or Ethernet network
+                    // Else if we are on Wifi or Ethernet network
                 } else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI
                         || activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET) {
                     // See if we have a local URL configured in settings
@@ -122,14 +121,14 @@ public class OpenHABTracker implements AsyncServiceResolverListener {
                                 openHABError(mCtx.getString(R.string.error_no_url));
                             }
                         }
-                    // If no local URL is configured
+                        // If no local URL is configured
                     } else {
                         // Start service discovery
                         mServiceResolver = new AsyncServiceResolver(mCtx, this, mOpenHABServiceType);
                         bonjourDiscoveryStarted();
                         mServiceResolver.start();
                     }
-                // Else we treat other networks types as unsupported
+                    // Else we treat other networks types as unsupported
                 } else {
                     Log.e(TAG, "Network type (" + activeNetworkInfo.getTypeName() + ") is unsupported");
                     openHABError("Network type (" + activeNetworkInfo.getTypeName() + ") is unsupported");
@@ -174,7 +173,7 @@ public class OpenHABTracker implements AsyncServiceResolverListener {
     }
 
     public static int getCurrentNetworkConnectivityType(Context ctx) {
-        ConnectivityManager connectivityManager = (ConnectivityManager)ctx.getSystemService(
+        ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo != null) {

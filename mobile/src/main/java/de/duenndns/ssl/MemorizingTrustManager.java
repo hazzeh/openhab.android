@@ -291,7 +291,7 @@ public class MemorizingTrustManager implements X509TrustManager {
                 else
                     defaultTrustManager.checkClientTrusted(chain, authType);
             } catch (CertificateException e) {
-				Log.e(TAG, e.getMessage(), e);
+                Log.e(TAG, e.getMessage(), e);
                 interact(chain, authType, e);
             }
         }
@@ -399,7 +399,7 @@ public class MemorizingTrustManager implements X509TrustManager {
                 // we try to directly start the activity and fall back to
                 // making a notification
 /*				try {
-					getUI().startActivity(ni);
+                    getUI().startActivity(ni);
 				} catch (Exception e) {
 					Log.e(TAG, "startActivity: " + e);
 					startActivityNotification(ni, certMessage);

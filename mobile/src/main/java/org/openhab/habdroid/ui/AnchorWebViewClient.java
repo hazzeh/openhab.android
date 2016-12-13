@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2010-2016, openHAB.org and others.
  *
@@ -15,10 +14,10 @@ import android.content.SharedPreferences;
 import android.net.http.SslError;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.webkit.HttpAuthHandler;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.HttpAuthHandler;
 
 import org.openhab.habdroid.util.Constants;
 
@@ -32,11 +31,11 @@ class AnchorWebViewClient extends WebViewClient {
         this.username = username;
         this.password = password;
         int pos = url.lastIndexOf("#") + 1;
-        if(pos != 0 && pos<url.length()) {
+        if (pos != 0 && pos < url.length()) {
             this.anchor = url.substring(pos);
-            Log.d(TAG, "Found anchor " + anchor + " from url "+ url);
+            Log.d(TAG, "Found anchor " + anchor + " from url " + url);
         } else {
-            Log.d(TAG, "Did not find anchor from url "+ url);
+            Log.d(TAG, "Did not find anchor from url " + url);
         }
     }
 

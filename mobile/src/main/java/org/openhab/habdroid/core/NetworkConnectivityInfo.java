@@ -44,7 +44,7 @@ public class NetworkConnectivityInfo implements Parcelable {
     };
 
     public static NetworkConnectivityInfo currentNetworkConnectivityInfo(Context ctx) {
-        ConnectivityManager connectivityManager = (ConnectivityManager)ctx.getSystemService(
+        ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         NetworkConnectivityInfo connectivityInfo = new NetworkConnectivityInfo();
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -70,7 +70,7 @@ public class NetworkConnectivityInfo implements Parcelable {
                 // Networks are equal
                 return true;
             }
-        // If not wifi
+            // If not wifi
         } else {
             // If network type is the same
             if (connectivityInfo.getNetworkType() == this.getNetworkType()) {

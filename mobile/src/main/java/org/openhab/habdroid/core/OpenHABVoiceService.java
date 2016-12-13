@@ -20,8 +20,6 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
-import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.entity.StringEntity;
 import org.openhab.habdroid.R;
 import org.openhab.habdroid.util.Constants;
 import org.openhab.habdroid.util.ContinuingIntentService;
@@ -30,6 +28,9 @@ import org.openhab.habdroid.util.MyAsyncHttpClient;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * This service handles voice commands and sends them to OpenHAB.
@@ -86,7 +87,7 @@ public class OpenHABVoiceService extends ContinuingIntentService implements Open
 
     /**
      * Buffers the {@link Intent} to be processed later when openHABBaseUrl has been determined by {@link OpenHABTracker}.
-     *
+     * <p>
      * Usually, the discovery of the openHABBaseUrl is fast enough, so there will be only one intent in the buffer
      * when the buffer is processed and this service is stopped.
      * However, it is not guaranteed that this service is only called once before openHABBaseUrl can be discovered.

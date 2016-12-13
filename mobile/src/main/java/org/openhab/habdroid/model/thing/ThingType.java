@@ -18,7 +18,7 @@ public class ThingType implements Parcelable {
     private ArrayList<ThingTypeChannel> channels;
     private ArrayList<ThingTypeChannelGroup> channelGroups;
     private ArrayList<ThingTypeConfigParameter> configParameters;
-//    private ArrayList<ThingTypeProperty> properties;
+    //    private ArrayList<ThingTypeProperty> properties;
     private String description;
     private String label;
     private String UID;
@@ -97,7 +97,7 @@ public class ThingType implements Parcelable {
         dest.writeString(description);
         dest.writeString(label);
         dest.writeString(UID);
-        dest.writeByte((byte)(bridge ? 1 : 0));
+        dest.writeByte((byte) (bridge ? 1 : 0));
     }
 
     public static final Parcelable.Creator<ThingType> CREATOR

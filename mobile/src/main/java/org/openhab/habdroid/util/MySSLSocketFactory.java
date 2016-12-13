@@ -9,8 +9,6 @@
 
 package org.openhab.habdroid.util;
 
-import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
-
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -25,6 +23,8 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
+import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
 
 public class MySSLSocketFactory extends SSLSocketFactory {
     SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -44,14 +44,14 @@ public class MySSLSocketFactory extends SSLSocketFactory {
             }
         };
 
-        sslContext.init(null, new TrustManager[] { tm }, null);
+        sslContext.init(null, new TrustManager[]{tm}, null);
     }
 
     public MySSLSocketFactory(SSLContext context) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, UnrecoverableKeyException {
-    	super((KeyStore) null);
-       sslContext = context;
+        super((KeyStore) null);
+        sslContext = context;
     }
-    
+
     @Override
     public Socket createSocket(Socket socket, String host, int port, boolean autoClose) throws IOException, UnknownHostException {
         return sslContext.getSocketFactory().createSocket(socket, host, port, autoClose);

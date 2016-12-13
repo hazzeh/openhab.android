@@ -33,7 +33,7 @@ public class OpenHABSitemapPage {
         mRootWidget.setType("root");
         if (rootNode.hasChildNodes()) {
             NodeList childNodes = rootNode.getChildNodes();
-            for (int i = 0; i < childNodes.getLength(); i ++) {
+            for (int i = 0; i < childNodes.getLength(); i++) {
                 Node childNode = childNodes.item(i);
                 if (childNode.getNodeName().equals("widget")) {
                     OpenHABWidget newOpenHABWidget = OpenHAB1Widget.createOpenHABWidgetFromNode(mRootWidget, childNode);

@@ -39,19 +39,19 @@ import java.security.cert.X509Certificate;
  */
 
 public class OpenHABPreferencesActivity extends PreferenceActivity {
-	@SuppressWarnings("deprecation")
+    @SuppressWarnings("deprecation")
 
-	@Override
-	public void onStart() {
-		super.onStart();
+    @Override
+    public void onStart() {
+        super.onStart();
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
-	}
+    }
 
-	@Override
-	public void onStop() {
-		super.onStop();
+    @Override
+    public void onStop() {
+        super.onStop();
         GoogleAnalytics.getInstance(this).reportActivityStop(this);
-	}
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
